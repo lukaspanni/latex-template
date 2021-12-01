@@ -1,0 +1,65 @@
+\documentclass[12pt,oneside, titlepage]{book}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{bookmark}
+\usepackage{inconsolata}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\graphicspath{ {./img/} }
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{listings}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[pagestyles]{titlesec}   
+\usepackage{titling}
+
+\newpagestyle{defaultstyle}{\setfoot[\thepage][][]{}{}{\thepage}\sethead[\chaptertitle][][]{}{}{\chaptertitle}}
+\pagestyle{defaultstyle}
+\titleformat{\chapter}{\Huge\bfseries}{\thechapter.}{20pt}{\Huge\bfseries}
+
+\setlength{\parindent}{0em}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\usepackage{listings}
+\lstset{language=Java,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\ttfamily,
+  moredelim=[il][\textcolor{pgrey}]{$$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
+
+\pretitle{
+  \begin{center}
+  \LARGE
+}
+\posttitle{
+  \includegraphics[height=10cm, trim=0 -10 0 -10 mm]{screenshot_dashboard_and_progress.png}
+  \end{center}
+}
+
+
+\title{TITLE}
+\author{Lukas Panni}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\bibliographystyle{ieeetr}
+\bibliography{sources}
+
+\end{document}
