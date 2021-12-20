@@ -1,61 +1,64 @@
-\documentclass[12pt,oneside, titlepage]{book}
-\usepackage[ngerman]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[hidelinks]{hyperref}
-\usepackage{bookmark}
-\usepackage{inconsolata}
-\usepackage{color}
-\usepackage{enumitem}
-\usepackage{graphicx}
-\graphicspath{ {./img/} }
-\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm]{geometry}
-\usepackage[onehalfspacing]{setspace}
-\usepackage{listings}
-\usepackage[nottoc,numbib]{tocbibind}
-\usepackage[pagestyles]{titlesec}   
-\usepackage{titling}
+\documentclass[12pt, oneside, titlepage]{book}
+\usepackage{Document}
 
-\newpagestyle{defaultstyle}{\setfoot[\thepage][][]{}{}{\thepage}\sethead[\chaptertitle][][]{}{}{\chaptertitle}}
-\pagestyle{defaultstyle}
-\titleformat{\chapter}{\Huge\bfseries}{\thechapter.}{20pt}{\Huge\bfseries}
 
-\setlength{\parindent}{0em}
+\newcommand{\Author}{Lukas Panni}
+\newcommand{\Type}{Paper}
 
-\definecolor{pblue}{rgb}{0.13,0.13,1}
-\definecolor{pgreen}{rgb}{0,0.5,0}
-\definecolor{pred}{rgb}{0.9,0,0}
-\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\newcommand{\Title}{EMPTY}
 
-\usepackage{listings}
-\lstset{language=Java,
-  showspaces=false,
-  showtabs=false,
-  breaklines=true,
-  showstringspaces=false,
-  breakatwhitespace=true,
-  commentstyle=\color{pgreen},
-  keywordstyle=\color{pblue},
-  stringstyle=\color{pred},
-  basicstyle=\ttfamily,
-  moredelim=[il][\textcolor{pgrey}]{$$},
-  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+\newcommand{\Abgabedatum}{30.08.2021}
+\newcommand{\Zeitraum}{07.06.2021 - \Abgabedatum}
+
+\newcommand{\Abschluss}{Bachelor of Science}
+
+\newcommand{\Studiengang}{Angewandte Informatik}
+
+\hypersetup{
+  pdfauthor={\Author},
+  pdftitle={\Title},
+  pdfsubject={\Type}
 }
 
-\pretitle{
-  \begin{center}
-  \LARGE
-}
-
-
-\title{TITLE}
-\author{Lukas Panni}
 \begin{document}
 
-\maketitle
-\tableofcontents
+\pagestyle{plain}
 
+\begin{titlepage}
+\begin{center}
+\vspace*{-2cm}
+{\Huge \Title}\\[1cm]
+{\Huge\scshape \Type}\\[1cm]
+{\large\bfseries \Author}\\[1cm]
+\vfill
+\end{center}
+\end{titlepage}
+
+\input{abstract.tex}
+
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\newpage
+\tableofcontents
+\listoffigures
+\listoftables
+%   \lstlistoflistings
+
+\chapter*{Abbreviations}
+\addcontentsline{toc}{chapter}{Abbreviations}
+\input{acronyms.tex}
+\clearpage
+
+% Inhalt
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{chapters/test-chapter.tex}
 
 \bibliographystyle{ieeetr}
 \bibliography{sources}
+
+\appendix
+\input{appendix.tex}
 
 \end{document}

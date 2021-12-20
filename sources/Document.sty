@@ -1,0 +1,89 @@
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled]{helvet}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{inconsolata}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=4cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{listings}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[pagestyles]{titlesec}
+\usepackage{listings}
+\usepackage{framed}
+%\usepackage{biblatex}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{pifont}
+\usepackage[printonlyused]{acronym}
+\usepackage[babel, german=guillemets]{csquotes}
+\usepackage{etoolbox}
+\usepackage{float}
+
+
+\renewcommand\familydefault{\sfdefault}
+
+\titleformat{\chapter}{\Huge\bfseries}{\thechapter.}{20pt}{\Huge\bfseries}
+\titlespacing*{\chapter}{0pt}{0pt}{30pt}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[C]{\Type}
+  \fancyfoot[R]{\thepage}
+  \fancyfoot[L]{\textit{\Author}}
+  \renewcommand{\headrulewidth}{0.1pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\graphicspath{ {./img/} }
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}}
+
+
+\appto\appendix{\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}}
+% reinstate the correct level for list of tables and figures
+\appto\listoffigures{\addtocontents{lof}{\protect\setcounter{tocdepth}{1}}}
+\appto\listoftables{\addtocontents{lot}{\protect\setcounter{tocdepth}{1}}}
+
+\lstdefinelanguage{TypeScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{language=TypeScript,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\ttfamily,
+  moredelim=[il][\textcolor{pgrey}]{$$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
+
